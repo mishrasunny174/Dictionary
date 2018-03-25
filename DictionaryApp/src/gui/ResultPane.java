@@ -33,8 +33,11 @@ public class ResultPane {
 	
 	public JPanel getResultPane(String type,String definition,String example) {
 		typeData.setText(type);
+		typeData.setEditable(false);
 		definitionData.setText(definition);
+		definitionData.setEditable(false);
 		exampleData.setText(example);
+		exampleData.setEditable(false);
 		Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 15);
 		resultPanel.setLayout(new GridBagLayout());
 		GridBagConstraints gbcResult = new GridBagConstraints();
