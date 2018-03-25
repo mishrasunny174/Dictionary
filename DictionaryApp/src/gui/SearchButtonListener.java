@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 import dictionary.Data;
 import dictionary.Dictionary;
@@ -30,13 +31,18 @@ public class SearchButtonListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		Data data;
+		JTabbedPane tabs = app.getResultsTabbedPane();
 		if (!app.getQuery().equals("")) {
 			try {
+				app.setNotSearchedFalse();
+				tabs.setVisible(true);
 				data = Dictionary.getData(app.getQuery());
 				Result[] results = data.getResults();
-				app.setDefinition(results[0].getDefinition());
-				app.setType(results[0].getType());
-				app.setExample(results[0].getExample());
+				int counter = 1;
+				for(Result result : results) {
+					tabs.add("result "+counter,new ResultPane().getResultPane(result.getType(),result.getDefinition(),result.getExample()));
+					counter++;
+				}
 			} catch (UnableToConnectException e) {
 				JDialog errorDialogue = new JDialog(app.getFrame(), "ERROR", true);
 				errorDialogue.setLayout(new GridLayout(2,1));
