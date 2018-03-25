@@ -123,7 +123,6 @@ public class GUIFrame {
 		gbcResult.weightx=1;
 		gbcResult.gridheight=2;
 		typeData.setLineWrap(true);
-		typeData.setBorder(BorderFactory);
 		resultPanel.add(typeData,gbcResult);
 		gbcResult.gridy=2;
 		definitionData.setLineWrap(true);
