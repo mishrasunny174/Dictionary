@@ -62,6 +62,7 @@ public class GUIFrame {
 		appframe.setLayout(new GridLayout(1,1));
 		appframe.setResizable(true);
 		appframe.setBackground(Color.WHITE);
+		appframe.setMinimumSize(new Dimension(400, 300));
 		app.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx=0;
