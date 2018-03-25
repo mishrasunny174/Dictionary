@@ -34,6 +34,8 @@ public class SearchButtonListener implements ActionListener {
 		JTabbedPane tabs = app.getResultsTabbedPane();
 		if (!app.getQuery().equals("")) {
 			try {
+				if(app.getQuery().contains(" "))
+					throw new NotFoundException("Cant find");
 				app.setNotSearchedFalse();
 				tabs.setVisible(true);
 				data = Dictionary.getData(app.getQuery());
