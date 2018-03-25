@@ -83,6 +83,7 @@ public class GUIFrame {
 		searchPanel.add(searchLabel);
 		searchPanel.add(new JSeparator(SwingConstants.VERTICAL));
 		searchField.setFont(font);
+		searchField.setText("");
 		searchPanel.add(searchField);
 		searchPanel.add(searchButton);
 		gbc.gridx=0;
@@ -167,5 +168,9 @@ public class GUIFrame {
 	
 	public void setExample(String example) {
 		exampleData.setText(example);
+	}
+	
+	public JFrame getFrame() {
+		return appframe;
 	}
 }
