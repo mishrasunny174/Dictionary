@@ -6,9 +6,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 public class Dictionary {
 	public static Data getData(String word) throws UnableToConnectException, IOException, NotFoundException{
+		String response=null;
 		Data data=null;
 		try {
-			String response = DictionaryConnection.getResponse(word);
+			response = DictionaryConnection.getResponse(word);
 			if (response.equals("[]\n")) {
 				throw new NotFoundException("Word Not Found");
 			}
@@ -17,6 +18,7 @@ public class Dictionary {
 			data = mapper.readValue(response, Data.class);
 		} catch (UnableToConnectException e) {
 			System.err.println("[Debug] "+e.getMessage());
+			System.out.println("[Debug] response = "+response);
 			throw e;
 		} catch (IOException e) {
 			System.err.println("[Debug] unable to parse json file");

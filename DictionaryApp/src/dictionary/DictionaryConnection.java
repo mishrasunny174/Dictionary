@@ -14,8 +14,8 @@ public class DictionaryConnection {
 		try {
 			String address = baseUrl+word+"?format=json";
 			URL url = new URL(address);
-			URLConnection conncetion = url.openConnection();
-			try (InputStreamReader responseReader = new InputStreamReader(conncetion.getInputStream());
+			URLConnection connection = url.openConnection();
+			try (InputStreamReader responseReader = new InputStreamReader(connection.getInputStream());
 					BufferedReader response = new BufferedReader(responseReader)) {
 				StringBuilder responseBuilder = new StringBuilder();
 				String line = null;
