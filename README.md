@@ -1,2 +1,2 @@
 # Dictionary
-A simple dictionary which uses oxford dictionary api
+A simple dictionary which uses owlbot dictionary api
