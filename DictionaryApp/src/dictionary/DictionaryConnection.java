@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 
 public class DictionaryConnection {
 	private static final String baseUrl = "https://owlbot.info/api/v2/dictionary/";
@@ -11,8 +12,10 @@ public class DictionaryConnection {
 	public static String getResponse(String word) throws UnableToConnectException {
 		String result = null;
 		try {
-			URL url = new URL(baseUrl + word);
-			try (InputStreamReader responseReader = new InputStreamReader(url.openConnection().getInputStream());
+			String address = baseUrl+word+"?format=json";
+			URL url = new URL(address);
+			URLConnection conncetion = url.openConnection();
+			try (InputStreamReader responseReader = new InputStreamReader(conncetion.getInputStream());
 					BufferedReader response = new BufferedReader(responseReader)) {
 				StringBuilder responseBuilder = new StringBuilder();
 				String line = null;
