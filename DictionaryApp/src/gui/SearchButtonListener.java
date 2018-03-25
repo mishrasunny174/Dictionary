@@ -50,7 +50,7 @@ public class SearchButtonListener implements ActionListener {
 				errorDialogue.setLayout(new GridLayout(2,1));
 				errorDialogue.setSize(new Dimension(400, 150));
 				JPanel errorPanel = new JPanel();
-				JLabel error = new JLabel("Unable to connect to internet".toUpperCase());
+				JLabel error = new JLabel("Unable to connect to API".toUpperCase());
 				error.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
 				error.setForeground(Color.RED);
 				errorPanel.add(error);
