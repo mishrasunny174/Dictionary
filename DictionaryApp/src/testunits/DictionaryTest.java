@@ -8,10 +8,8 @@ public class DictionaryTest {
 	public static void main(String[] args) {
 		Data data = Dictionary.getData("love");
 		Result[] results = data.getResults();
-		System.out.println("Word: love");
-		System.out.println("Definitions");
 		for (Result result : results) {
-			System.out.println(result.getType());
+			System.out.println(result.getDefinition());
 			System.out.println();
 		}
 	}
