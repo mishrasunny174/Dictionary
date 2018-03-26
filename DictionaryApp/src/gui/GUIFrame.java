@@ -6,6 +6,9 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -77,6 +80,14 @@ public class GUIFrame {
 		searchPanel.add(new JSeparator(SwingConstants.VERTICAL));
 		searchField.setFont(font);
 		searchField.setText("");
+		searchField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent ke) {
+				if(ke.getKeyCode()==KeyEvent.VK_ENTER) {
+					searchButton.doClick();
+				}
+			}
+		});
 		searchPanel.add(searchField);
 		searchPanel.add(searchButton);
 		gbc.gridx = 0;
